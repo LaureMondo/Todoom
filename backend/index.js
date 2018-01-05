@@ -3,6 +3,7 @@ var session = require('express-session');
 
 var addTodo = require('./modules/add.js');
 var deleteTodo = require('./modules/delete.js');
+var detailTodo = require('./modules/detail.js');
 
 var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({ extended: false });
@@ -31,18 +32,22 @@ app.use(function (req, res, next) {
             {
                 id: '1',
                 title: 'Finir le Node',
+                description: 'Une description de qualité'
             },
             {
                 id: '2',
                 title: 'Finir le Vue',
+                description: 'Une description de qualité'
             },
             {
                 id: '3',
                 title: 'Nourrir les chats',
+                description: 'Une description de qualité'
             },
             {
                 id: '4',
-                title: 'Ranger la chambre',
+                title: 'Ranger la maison',
+                description: 'Une description de qualité'
             }],
         };
         req.session.todosList = todos;
@@ -54,23 +59,14 @@ app.use(function (req, res, next) {
 * @route / accueil, liste les todos
 */
 app.get('/', function(req, res){
-    res.send(req.session.todosList);       
+    res.send(req.session.todosList);
 });
 
 /* 
 * @route /add permet d'ajouter des Todos grace au form
 */
 app.post('/add', urlEncodedParser, function(req, res){
-
-    console.log("avant add : ");
-    console.log(req.session.todosList);
-
     addTodo.addTodo(req.session.todosList.todo, req.body);
-    console.log(req.body);
-
-    console.log("après add : ");
-    console.log(req.session.todosList);
-
     res.send(req.session.todosList);
 });
 
@@ -81,6 +77,15 @@ app.get('/delete', function(req, res){
     var indexTodo = parseInt(req.query.id);
     deleteTodo.deleteTodo(req.session.todosList.todo, indexTodo);
     res.send(req.session.todosList);
+});
+
+/* 
+* @route /detail/:id permet de voir le détail d'une Todos d'id donnée
+*/
+app.get('/detail', function(req, res){
+    var indexTodo = parseInt(req.query.id);
+    var detail = detailTodo.detailTodo(req.session.todosList.todo, indexTodo);
+    res.send(detail);
 });
 
 app.listen(3000, function(){

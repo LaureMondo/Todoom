@@ -1,6 +1,7 @@
 <template>
   <div class="todo">
     <p class="title"> {{ title }}</p>
+    <button v-on:click="detailTodo(id)">Voir détails</button>
     <button v-on:click="deleteTodo(id)">X</button>
   </div>
 </template>
@@ -16,7 +17,10 @@ export default {
   methods: {
     deleteTodo(idTodo) {
       this.$emit('delete', idTodo);
-    }
+    },
+    detailTodo(idTodo) {
+      this.$emit('detail', idTodo);
+    },
   },
   components: {}
 }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import home from '@/Components/home'
 import formulaireAjout from '@/Components/formulaireAjout'
+import detailTodo from '@/Components/detailTodo'
 
 Vue.use(Router)
 
@@ -16,5 +17,10 @@ export default new Router({
     name: 'formulaireAjout',
     path: '/ajouter',
     component: formulaireAjout
+  },
+  {
+    name: 'detailTodo',
+    path: '/detail',
+    component: detailTodo
   }]
 })

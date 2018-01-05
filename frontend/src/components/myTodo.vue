@@ -1,9 +1,9 @@
 <template>
   <div id="myTodos">
-  Mes Todos magiques en cours :
+    <h2>Mes Todos magiques en cours :</h2>
 
     <div>
-      <todo @delete="deleteTodo" v-for="(todo, key) in todos" :key="key" :title="todo.title" :id="todo.id"></todo>
+      <todo @detail="detailTodo" @delete="deleteTodo" v-for="(todo, key) in todos" :key="key" :title="todo.title" :id="todo.id"></todo>
     </div>
     
   </div>
@@ -16,7 +16,7 @@ import axios from 'axios'
 export default {
   name: 'myTodos',
   components: {
-    todo
+    todo,
   },
   data () {
     return {
@@ -36,6 +36,9 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
+    },
+    detailTodo: function (id) {
+      this.$router.push({ path: `/detail?id=${id}` });
     }
   },
   created () {

@@ -6,6 +6,8 @@
         <div class="">
             <label for="titleTodo">Titre :</label>
             <input v-model="titleTodo" type="text" class="form-control" id="titleTodo" name="titleTodo" placeholder="Titre todo">
+            <label for="descriptionTodo">Description :</label>
+            <input v-model="descriptionTodo" type="text" class="form-control" id="descriptionTodo" name="descriptionTodo" placeholder="Description todo">
         </div>
         <button type="submit" class="" @submit.prevent="addTodo">Ajouter</button>
     </form>
@@ -22,18 +24,21 @@ export default {
   },
   data () {
       return{
-        titleTodo: ''
+        titleTodo: '',
+        descriptionTodo: ''
       }
   },
   methods: {
     addTodo: function (titleTodo) {
       axios.post('http://localhost:3000/add', {
         params: {
-          title: titleTodo
+          title: titleTodo,
+          description: descriptionTodo
         }
       })
       .then(response => {
         this.todos = response.data.todo;
+        this.$router.push('/');
       })
       .catch(function (error) {
         console.log(error);
