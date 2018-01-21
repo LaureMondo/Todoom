@@ -27,8 +27,9 @@ export default {
     deleteTodo: function (idTodo) {
       axios.get('http://localhost:3000/delete', {
         params: {
-          id: idTodo
-        }
+          id: idTodo,
+        },
+        withCredentials: true
       })
       .then(response => {
         this.todos = response.data.todo;
@@ -37,13 +38,14 @@ export default {
         console.log(error);
       });
     },
-    detailTodo: function (id) {
-      this.$router.push({ path: `/detail?id=${id}` });
+    detailTodo: function (idTodo) {
+      this.$router.push({ path: `/detail?id=${idTodo}` });
     }
   },
   created () {
     // fonction appelée quand vue js construit le composant
-    axios.get('http://localhost:3000/')
+    axios.get('http://localhost:3000/', 
+    {withCredentials: true})
       .then(response => {
         this.todos = response.data.todo
       })

@@ -22,5 +22,10 @@ export default new Router({
     name: 'detailTodo',
     path: '/detail',
     component: detailTodo
+  },
+  {
+    name: 'formulaireModifier',
+    path: '/modifier',
+    component: formulaireAjout
   }]
 })

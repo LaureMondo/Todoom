@@ -2,7 +2,7 @@
   <div class="detailTodo">
     <div> 
         <h2>Voici le détail de la todo :</h2>
-        <button v-on:click="modifierTodo(id)">Modifier</button>
+        <button v-on:click="modifierTodo(todo.id)">Modifier</button>
     </div>
     <p class="title"> Titre : {{ todo.title }}</p>
     <p class="description"> Description : {{ todo.description }}</p>
@@ -22,12 +22,18 @@ export default {
       todo: ''
     }
   },
+  methods: {
+    modifierTodo: function (idTodo) {
+      this.$router.push({ path: `/modifier?id=${idTodo}` });
+    }
+  },
   created () {
     // fonction appelée quand vue js construit le composant
     axios.get('http://localhost:3000/detail', {
         params: {
           id: this.$route.query.id
-        }
+        },
+        withCredentials: true
       })
       .then(response => {
         this.todo = response.data;
