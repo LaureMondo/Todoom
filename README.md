@@ -1,8 +1,8 @@
 # Todoom
 ## 1. Le projet Todo
 Vous trouverez deux dossiers : 
-- un dossier backend contenant la partie nodeJS avec la gestion des sessions et des todos...
-- un dossier frontend avec la partie vueJS qui gère les templates, et l'envoi / affichage des Todos
+- un dossier backend contenant la partie nodeJS avec la gestion des sessions et des todos ;
+- un dossier frontend avec la partie vueJS qui gère les templates, et l'envoi / affichage des Todos.
 
 ## 2. Explication
 ### Serveur
@@ -10,12 +10,12 @@ Le serveur va gérer les routes et les Todos en session.
 Les routes appellent les différents modules qui vont réaliser les traitements nécessaires sur les Todos.
 Chaque route utilise son module.
 Il existe plusieurs routes : 
-* / * elle renvoie la liste de toutes les todos en session ;
-* /add * permet d'ajouter une nouvelle Todo ;
-* /delete * cette route supprime la Todo d'identifiant donné ;
-* /modifier * permet de modifier une Todo d'identifiant donné ;
-* /getTodo * renvoie la Todo d'id donné ;
-* /detail * donne le détail de la Todo d'id demandé.
+*/* elle renvoie la liste de toutes les todos en session ;
+*/add* permet d'ajouter une nouvelle Todo ;
+*/delete* cette route supprime la Todo d'identifiant donné ;
+*/modifier* permet de modifier une Todo d'identifiant donné ;
+*/getTodo* renvoie la Todo d'id donné ;
+*/detail* donne le détail de la Todo d'id demandé.
 
 
 Différents middlewares permettent de faire fonctionner le serveur :
