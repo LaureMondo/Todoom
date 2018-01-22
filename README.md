@@ -9,12 +9,19 @@ Vous trouverez deux dossiers :
 Le serveur va gérer les routes et les Todos en session.
 Les routes appellent les différents modules qui vont réaliser les traitements nécessaires sur les Todos.
 Chaque route utilise son module.
+
 Il existe plusieurs routes : 
+
 */* elle renvoie la liste de toutes les todos en session ;
+
 */add* permet d'ajouter une nouvelle Todo ;
+
 */delete* cette route supprime la Todo d'identifiant donné ;
+
 */modifier* permet de modifier une Todo d'identifiant donné ;
+
 */getTodo* renvoie la Todo d'id donné ;
+
 */detail* donne le détail de la Todo d'id demandé.
 
 
@@ -48,6 +55,7 @@ npm run dev
 
 ## 3. Problèmes et conclusion
 Ce projet est intéressant et permet de voir de façon assez large les possibilités du nodeJS et du vueJS associés ensemble. Le problème a été de relier les deux, au début il a fallu comprendre les mécanismes et savoir comment ces deux langages fonctionnent indépendamment.
+
 Un autre problème concerne les sessions, au départ celles-ci ne se concervaient pas entre les différents rafraichissements des pages du front (alors que sur Postman celles-ci fonctionnaient). En fait le problème vient de CORS qui oblige à utiliser un middleware et un module externe.
 
 
