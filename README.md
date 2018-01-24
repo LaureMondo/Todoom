@@ -4,7 +4,7 @@ Vous trouverez deux dossiers :
 - un dossier backend contenant la partie nodeJS avec la gestion des sessions et des todos ;
 - un dossier frontend avec la partie vueJS qui gère les templates, et l'envoi / affichage des Todos.
 
-## 2. Explication
+## 2. Explications
 
 Les détails se trouvent dans les readme.md de chaque dossier.
 
