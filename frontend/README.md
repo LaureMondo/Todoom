@@ -1,21 +1,18 @@
-# todoom
+# VueJS Front
 
-> Le projet des Todos magiques à la poussière de licorne
+## 1. Explication
 
-## Build Setup
+Les vues sont découpées en fonction de leur "réutilisabilité" afin d'avoir une certaine indépendance, et que lorsque qu'un module se met à jour, tous les autres modules qui n'ont pas besoin de l'information reste inchangé.
+Les requêtes sont préparées par Axios (il a fallu rajouter le paramètre *withCredentials : true* sans quoi les requêtes ne rejoignaient jamais le back).
 
-``` bash
-# install dependencies
+## 2. Lancement et installation
+### Frontend - Vues
+Il faut installer le front
+```
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+On le lance avec : 
+```
+npm run dev
+```
