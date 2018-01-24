@@ -36,6 +36,8 @@ Ce projet est intéressant et permet de voir de façon assez large les possibili
 
 Un autre problème concerne les sessions, au départ celles-ci ne se concervaient pas entre les différents rafraichissements des pages du front (alors que sur Postman celles-ci fonctionnaient). En fait le problème vient de CORS qui oblige à utiliser un middleware et un module externe.
 
+Le titre du projet est un mauvais jeu de mot évident si l'on parle anglais et une référence à un super jeu... Ne me jugez pas :trollface:
+
 
 Laure Mondoloni
 :koala: 
