@@ -1,16 +1,38 @@
-# Node-API-Agenda
+# Serveur Backend
 
-penser mettre des ids car on peut récupérer id dans route en param
+## 1. Explication
+Le serveur va gérer les routes et les Todos en session.
+Les routes appellent les différents modules qui vont réaliser les traitements nécessaires sur les Todos.
+Chaque route utilise son module.
 
-#Middleware : 
-- session (voir td 1)
-- custom (partie 6 td 1  : même principe que tester si compteur de view existe  ) -> init Todo pour éviter d'avoir à refaire vérification if existe partout... Comme ça le middleware passe dans toutes fonctions et cherche si c'est seté, si c'est pas seté, il set
+Il existe plusieurs routes : 
 
-#Route :
-- ajouter todo
--  route supprimer todo (id),
-- list todo (offset : a partir de quel article je veux, size : cb j'en veux) : j'ai une liste de 8 elements dans liste et je les veux 4 par 4 : premier 0, 4 ensuite 4, 4 pour deuxieme page ect
+*/* elle renvoie la liste de toutes les todos en session ;
 
-La route va juste rediriger vers le bon module
+*/add* permet d'ajouter une nouvelle Todo ;
 
-penser utiliser postman avec bodyparser
+*/delete* cette route supprime la Todo d'identifiant donné ;
+
+*/modifier* permet de modifier une Todo d'identifiant donné ;
+
+*/getTodo* renvoie la Todo d'id donné ;
+
+*/detail* donne le détail de la Todo d'id demandé.
+
+Chaque route appelle son module node du dossier node afin d'effectuer les traitements sur les Todos.
+
+
+Différents middlewares permettent de faire fonctionner le serveur :
+
+Cors permettant de faire des requêtes sur le vueJS et express pour gérer les sessions.
+
+## 2. Lancement et installation
+Il faut installer le serveur et les modules
+```
+npm install
+```
+
+Ensuite on peut lancer le serveur :
+```
+node index.js
+```
